@@ -10,7 +10,8 @@ class PostRepository extends Repository
 {
     private string $getAll = 'SELECT posts.id, posts.userId, posts.postedAt, posts.message, users.username
                                 FROM posts
-                                INNER JOIN users ON posts.userId = users.id';
+                                INNER JOIN users ON posts.userId = users.id
+                                ORDER BY postedAt DESC';
     private string $getByUserId = 'SELECT id, userId, postedAt, message
                                     FROM posts
                                     WHERE userId = :userId';

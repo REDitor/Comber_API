@@ -35,6 +35,7 @@ class UserController extends Controller
         $this->respond($tokenResponse);
     }
 
+//TODO: create JWT class to generate and check for JWT
     function generateJwt($user): array
     {
         $secretKey = 'shhh_dont_tell_anyone';
