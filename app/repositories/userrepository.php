@@ -4,7 +4,6 @@ namespace Repositories;
 
 use PDO;
 use PDOException;
-use Repositories\Repository;
 
 class UserRepository extends Repository
 {
