@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ad0403a-1c46-469b-ad49-1fb9b900f871" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ef8625e4-501b-42b2-9c46-1181c0991600.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ef8625e4-501b-42b2-9c46-1181c0991600.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/categorycontroller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/productcontroller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/categoryrepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/productrepository.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/userrepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/userrepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/categoryservice.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/productservice.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +71,7 @@
       <workItem from="1648770453043" duration="283000" />
       <workItem from="1649332085055" duration="3722000" />
       <workItem from="1649350972918" duration="1317000" />
-      <workItem from="1649438548707" duration="290000" />
+      <workItem from="1649438548707" duration="643000" />
     </task>
     <task id="LOCAL-00001" summary="almost done">
       <created>1646926954192</created>
@@ -102,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649352568212</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed reference classes">
+      <created>1649439115344</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1649439115344</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +110,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="almost done" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="removed reference classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed reference classes" />
   </component>
 </project>
