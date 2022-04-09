@@ -18,6 +18,6 @@ class PostService
     }
 
     public function getByUserId($userId) {
-        $this->repository->getByUserId($userId);
+        return $this->repository->getByUserId($userId);
     }
 }

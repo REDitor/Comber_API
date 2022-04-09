@@ -47,7 +47,8 @@ class PostRepository extends Repository
         $post->userId = $row['userId'];
         $post->postedAt = $row['postedAt'];
         $post->message = $row['message'];
-        $post->postedBy = $row['username'];
+        if (isset($row['username']))
+            $post->postedBy = $row['username'];
 
         return $post;
     }

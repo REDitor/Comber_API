@@ -66,6 +66,7 @@ class UserController extends Controller
         return array(
             "message" => "Successfull Login",
             "jwt" => $jwt,
+            "id" => $user->id,
             "username" => $user->username,
             "role" => $user->role,
             "expireAt" => $expire
