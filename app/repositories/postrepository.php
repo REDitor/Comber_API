@@ -13,18 +13,28 @@ class PostRepository extends Repository
                                 FROM posts
                                 INNER JOIN users ON posts.userId = users.id
                                 ORDER BY postedAt DESC';
+
     private string $getOne = 'SELECT id, userId, postedAt, message
                                 FROM posts
                                 WHERE id = :id';
+
     private string $getByUserId = 'SELECT id, userId, postedAt, message
                                     FROM posts
                                     WHERE userId = :userId
                                     ORDER BY postedAt DESC';
+
+    private string $insert = 'INSERT INTO posts (userId, postedAt, message)
+                               VALUES (:userId, :postedAt, :message)';
+
     private string $updateOne = 'UPDATE posts
                                     SET message = :message
                                     WHERE id = :id';
 
-    public function getAll($offset, $limit) {
+    private string $deleteOne = 'DELETE FROM posts
+                                    WHERE id = :id';
+
+    public function getAll($offset, $limit)
+    {
         try {
             if (isset($offset) && isset($limit))
                 $this->getAll .= ' LIMIT :limit OFFSET :offset';
@@ -43,12 +53,13 @@ class PostRepository extends Repository
                 $posts[] = $this->rowToPost($row);
 
             return $posts;
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    public function getOne($id) {
+    public function getOne($id)
+    {
         try {
             $stmt = $this->connection->prepare($this->getOne);
             $stmt->bindParam(':id', $id);
@@ -77,7 +88,8 @@ class PostRepository extends Repository
         return $post;
     }
 
-    public function getByUserId($userId) {
+    public function getByUserId($userId)
+    {
         try {
             $stmt = $this->connection->prepare($this->getByUserId);
             $stmt->bindParam(':userId', $userId);
@@ -88,19 +100,47 @@ class PostRepository extends Repository
                 $posts[] = $this->rowToPost($row);
 
             return $posts;
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo $e;
         }
     }
 
-    public function update($post, $id) {
+    public function updateOne($post, $id)
+    {
         try {
             $stmt = $this->connection->prepare($this->updateOne);
             $stmt->bindParam(':message', $post->message);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
-            return $this->getOne($post->id);
+            return "Update successful";
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function deleteOne($id)
+    {
+        try {
+            $stmt = $this->connection->prepare($this->deleteOne);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function insert($post)
+    {
+        try {
+            $stmt = $this->connection->prepare($this->insert);
+            $stmt->bindParam(':userId', $post->userId);
+            $stmt->bindParam(':postedAt', $post->postedAt);
+            $stmt->bindParam(':message', $post->message);
+
+            $stmt->execute();
+
+            return "Successfully added post";
         } catch (PDOException $e) {
             echo $e;
         }

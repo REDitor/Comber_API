@@ -21,7 +21,15 @@ class PostService
         return $this->repository->getByUserId($userId);
     }
 
-    public function update($post, $postId) {
-        return $this->repository->update($post, $postId);
+    public function updateOne($post, $id) {
+        return $this->repository->updateOne($post, $id);
+    }
+
+    public function deleteOne($id) {
+        $this->repository->deleteOne($id);
+    }
+
+    public function insert($post) {
+        return $this->repository->insert($post);
     }
 }

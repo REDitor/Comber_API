@@ -17,7 +17,8 @@ $router->setNamespace('Controllers');
 //routes for the posts endpoint
 $router->get('/posts', 'PostController@getAll');
 $router->get('/posts/users/(\d+)', 'PostController@getByUserId');
-$router->put('/posts/(\d+)', 'PostController@update');
+$router->post('/posts', 'PostController@insert');
+$router->put('/posts/(\d+)', 'PostController@updateOne');
 $router->delete('/posts/(\d+)', 'PostController@deleteOne');
 
 //routes for the users endpoint

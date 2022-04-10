@@ -7,11 +7,16 @@ use PDOException;
 
 class UserRepository extends Repository
 {
+    private string $login = "SELECT id, username, email, password, role 
+                                FROM users 
+                                WHERE username = :username
+                                OR email = :username";
+
     function checkUsernamePassword($username, $password)
     {
         try {
             // retrieve the user with the given username
-            $stmt = $this->connection->prepare("SELECT id, username, email, password, role FROM users WHERE username = :username");
+            $stmt = $this->connection->prepare($this->login);
             $stmt->bindParam(':username', $username);
             $stmt->execute();
 

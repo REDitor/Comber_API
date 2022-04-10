@@ -2,7 +2,6 @@
 
 namespace Controllers;
 
-use Exception;
 use Services\UserService;
 use \Firebase\JWT\JWT;
 
