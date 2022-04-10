@@ -2,6 +2,7 @@
 
 namespace Repositories;
 
+use http\Message;
 use Models\Post;
 use PDO;
 use PDOException;
@@ -12,9 +13,16 @@ class PostRepository extends Repository
                                 FROM posts
                                 INNER JOIN users ON posts.userId = users.id
                                 ORDER BY postedAt DESC';
+    private string $getOne = 'SELECT id, userId, postedAt, message
+                                FROM posts
+                                WHERE id = :id';
     private string $getByUserId = 'SELECT id, userId, postedAt, message
                                     FROM posts
-                                    WHERE userId = :userId';
+                                    WHERE userId = :userId
+                                    ORDER BY postedAt DESC';
+    private string $updateOne = 'UPDATE posts
+                                    SET message = :message
+                                    WHERE id = :id';
 
     public function getAll($offset, $limit) {
         try {
@@ -36,6 +44,22 @@ class PostRepository extends Repository
 
             return $posts;
         } catch(PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function getOne($id) {
+        try {
+            $stmt = $this->connection->prepare($this->getOne);
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $row = $stmt->fetch();
+
+            return $this->rowToPost($row);
+        } catch (PDOException $e) {
             echo $e;
         }
     }
@@ -65,6 +89,19 @@ class PostRepository extends Repository
 
             return $posts;
         } catch(PDOException $e) {
+            echo $e;
+        }
+    }
+
+    public function update($post, $id) {
+        try {
+            $stmt = $this->connection->prepare($this->updateOne);
+            $stmt->bindParam(':message', $post->message);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            return $this->getOne($post->id);
+        } catch (PDOException $e) {
             echo $e;
         }
     }

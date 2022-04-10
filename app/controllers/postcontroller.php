@@ -5,6 +5,7 @@ namespace Controllers;
 use Exception;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use PDOException;
 use Services\PostService;
 
 class PostController extends Controller
@@ -38,5 +39,15 @@ class PostController extends Controller
         $posts = $this->service->getByUserId($userId);
 
         $this->respond($posts);
+    }
+
+    public function update($id) {
+        try {
+            $post = $this->createObjectFromPostedJson("Models\\Post");
+            $post = $this->service->update($post, $id);
+        } catch (PDOException $e) {
+            $this->respondWithError(500, $e->getMessage());
+        }
+        $this->respond($post);
     }
 }

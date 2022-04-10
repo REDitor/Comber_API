@@ -16,24 +16,12 @@ $router->setNamespace('Controllers');
 
 //routes for the posts endpoint
 $router->get('/posts', 'PostController@getAll');
-$router->get('/posts/(\d+)', 'PostController@getByUserId');
+$router->get('/posts/users/(\d+)', 'PostController@getByUserId');
+$router->put('/posts/(\d+)', 'PostController@update');
+$router->delete('/posts/(\d+)', 'PostController@deleteOne');
 
 //routes for the users endpoint
 $router->post('/users/login', 'UserController@login');
-
-// routes for the products endpoint
-$router->get('/products', 'ProductController@getAll');
-$router->get('/products/(\d+)', 'ProductController@getOne');
-$router->post('/products', 'ProductController@create');
-$router->put('/products/(\d+)', 'ProductController@update');
-$router->delete('/products/(\d+)', 'ProductController@delete');
-
-// routes for the categories endpoint
-$router->get('/categories', 'CategoryController@getAll');
-$router->get('/categories/(\d+)', 'CategoryController@getOne');
-$router->post('/categories', 'CategoryController@create');
-$router->put('/categories/(\d+)', 'CategoryController@update');
-$router->delete('/categories/(\d+)', 'CategoryController@delete');
 
 // Run it!
 $router->run();

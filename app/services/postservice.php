@@ -20,4 +20,8 @@ class PostService
     public function getByUserId($userId) {
         return $this->repository->getByUserId($userId);
     }
+
+    public function update($post, $postId) {
+        return $this->repository->update($post, $postId);
+    }
 }

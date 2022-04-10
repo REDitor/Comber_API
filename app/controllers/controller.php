@@ -22,7 +22,7 @@ class Controller
         $jwt = $arr[1];
 
         // Decode JWT
-        $secret_key = "YOUR_SECRET_KEY";
+        $secret_key = "shhh_dont_tell_anyone";
 
         if ($jwt) {
             try {
