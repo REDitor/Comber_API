@@ -25,8 +25,6 @@ Feel free to explore the application as desired.
 #### Known issues:
 - Upon logout from pages that require the user to be logged in the route to the home page doesn't work.
 - Upon login a reload is required for the changes in the navbar to take effect.
-- Deletion of a post always works, even if the post doesn't exist.
-- The time stamp of a post (postedAt) is 2 hours behind. 
 
 ### Sources:
 Initial project structure and endpoint reference from: <a href="https://github.com/ahrnuld/restapi-complete">Mark de Haan & Wim Wiltenburg - GitHub</a>
