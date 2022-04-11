@@ -65,8 +65,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-                                                                        (1, 'LodewijkXIV', 'lodewijkxiv@test.com', '$2y$10$quyIpR/M0J52eF7OfgByiOufw5lH5ccVPK./maGqeJ/K6wD3z5TWG', 'user'),
-                                                                        (2, 'Willem-Jan-Boudewijn', 'wjb@test.com', '$2y$10$quyIpR/M0J52eF7OfgByiOufw5lH5ccVPK./maGqeJ/K6wD3z5TWG', 'user');
+                                                                        (1, 'LodewijkXIV', 'lodewijkxiv@test.com', '$2y$10$bx0epjJIHwOfJ5qJ9QWzyOpSqVfA92VM5W9aDlhezb4Xc/sd17jru', 'user'),
+                                                                        (2, 'Willem-Jan-Boudewijn', 'wjb@test.com', '$2y$10$bx0epjJIHwOfJ5qJ9QWzyOpSqVfA92VM5W9aDlhezb4Xc/sd17jru', 'user');
 
 --
 -- Beperkingen voor geëxporteerde tabellen
