@@ -125,6 +125,8 @@ class PostRepository extends Repository
             $stmt = $this->connection->prepare($this->deleteOne);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
+
+            return null;
         } catch (PDOException $e) {
             echo $e;
         }

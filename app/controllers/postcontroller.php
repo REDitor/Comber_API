@@ -60,10 +60,10 @@ class PostController extends Controller
 
     public function deleteOne($id) {
         try {
-            $this->service->deleteOne($id);
+            $post = $this->service->deleteOne($id);
         } catch (PDOException $e) {
             $this->respondWithError(500, $e->getMessage());
         }
-        $this->respond('Deletion Successful');
+        $this->respond(`Deletion Successful, post $id = $post`);
     }
 }

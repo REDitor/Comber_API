@@ -26,7 +26,7 @@ class PostService
     }
 
     public function deleteOne($id) {
-        $this->repository->deleteOne($id);
+        return $this->repository->deleteOne($id);
     }
 
     public function insert($post) {
